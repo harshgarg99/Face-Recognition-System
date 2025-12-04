@@ -1,0 +1,55 @@
+# -------------------------------
+# Python / Virtual Environment
+# -------------------------------
+env/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Byte-compiled / cache files
+*.pkl
+*.pickle
+
+# -------------------------------
+# TensorFlow / Deep Learning Models
+# -------------------------------
+*.h5
+*.hdf5
+*.pb
+*.ckpt*
+*.tflite
+
+# Large datasets or encoding files
+encodings/*.pkl
+Faces/
+MEDIA/
+
+# -------------------------------
+# IDE / Editor files
+# -------------------------------
+.vscode/
+.idea/
+
+# VS Code settings
+*.code-workspace
+
+# -------------------------------
+# OS-specific files
+# -------------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------------
+# Logs
+# -------------------------------
+*.log
+
+# -------------------------------
+# Other unnecessary files
+# -------------------------------
+*.tmp
