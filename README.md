@@ -1,33 +1,114 @@
-# Face Recognition based on MTCNN and Facenet
+#🧠 Face Recognition based on MTCNN and Facenet
 
-This project aims to develop a face recognition application using the MTCNN and Facenet libraries. MTCNN is used to detect faces in images, while Facenet is used to encode the detected faces into a unique vector that can be compared to other vectors for performing face recognition.
+A beginner-friendly real-time face recognition system built using MTCNN for face detection and FaceNet (InceptionResNetV2) for face embeddings, combined with a simple Pygame UI.
 
-## Prerequisites
+⚠️ Note:
+This is a learning/academic project — not a production-grade high-security system. Accuracy may vary based on lighting, camera quality, and dataset size.
 
-Before you can run this project, you must have the following packages installed:
-```
-tensorflow
-mtcnn
-keras
-opencv
-scikit-learn
-```
-## Execution
+## 🚀 Features
 
-To run this project, you can clone this repository to your local machine using the following command:
+🔍 Real-time face detection using MTCNN
 
-```
+🧬 Face recognition using FaceNet embeddings
+
+🎯 Cosine similarity-based matching
+
+🚫 Detects unknown faces when threshold not met
+
+🎨 Graphical user interface built with Pygame
+
+🗂 Face encodings stored using Pickle (.pkl)
+
+🟩 Green bounding box → recognized
+
+🟥 Red bounding box → unknown
+
+📸 Works with any standard webcam
+
+## Tech Stack
+
+| Category        | Technologies               |
+| --------------- | -------------------------- |
+| Language        | Python                     |
+| Deep Learning   | TensorFlow, Keras, FaceNet |
+| Face Detection  | MTCNN                      |
+| Computer Vision | OpenCV                     |
+| Math Utils      | NumPy, SciPy               |
+| Data Storage    | Pickle                     |
+| GUI             | Pygame                     |
+
+
+## Project Structure
+
+Face-Recognition-System/
+│── assets/                # UI images, banner, background
+│── encodings/             # Stored face encodings
+│── Faces/                 # Raw face images (optional)
+│── MEDIA/                 # Additional files
+│── env/                   # Virtual environment (ignored)
+│── architecture.py        # FaceNet model
+│── train_v2.py            # Preprocessing, L2-normalizer
+│── Button.py              # Custom pygame button class
+│── main.py                # Main app + recognition loop
+│── facenet_keras_weights.h5
+│── requirements.txt
+│── README.md
+│── .gitignore
+
+
+## How It Works(Pipeline)
+
+Webcam Frame → MTCNN Detector → Face Crop → Resize (160x160)
+       ↓
+ Normalize → FaceNet Encoder → 128-D Embedding
+       ↓
+ Cosine Distance Matching → Classified as Known / Unknown
+
+
+## Installation
+
+1️⃣ Clone Repository
+git clone https://github.com/harshgarg99/Face-Recognition-System.git
+cd Face-Recognition-System
+
+2️⃣ Create a Virtual Environment
+python -m venv env
+env\Scripts\activate
+
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+4️⃣ Run the Program
 python main.py
-```
-The application will start and you will be able to start using the Facial recognition system by adding images of people to the database.
 
-## Internal functioning
 
-When the application starts, it uses MTCNN to detect faces. The detected faces are then encoded using Facenet to produce a unique vector that represents each person.
+## Known Limitations
 
-When an image is submitted for face recognition, the same face detection and encoding process is performed on the submitted image. The resulting vector is then compared to each vector in the face recognition database to find the closest face.
+❗ Not resistant to photo attacks (images on phones/laptops)
 
-## Conclusion
+❗ Sensitive to lighting and face angle
 
-This project shows you how to use the MTCNN and Facenet libraries to develop a simple face recognition application. You can use this code as a base to build a more complex application or adapt it to your needs.
+❗ Small dataset → lower accuracy
+
+❗ No anti-spoofing module yet
+
+❗ FaceNet model is not fine-tuned on your custom faces
+
+## 🔮 Future Improvements
+
+✨ Add anti-spoofing (blink detection, depth, rPPG pulse)
+
+✨ Improve recognition threshold logic
+
+✨ Add “Register New Face” feature in UI
+
+✨ Replace MTCNN with RetinaFace for higher accuracy
+
+✨ GPU acceleration support
+
+✨ Export logs + performance metrics
+
+## ⭐ Support
+
+If you like this project, please ⭐ star the repository to support the development!
 
