@@ -1,31 +1,28 @@
-#🧠 Face Recognition based on MTCNN and Facenet
+# 🧠 Face Recognition based on MTCNN and FaceNet
 
-A beginner-friendly real-time face recognition system built using MTCNN for face detection and FaceNet (InceptionResNetV2) for face embeddings, combined with a simple Pygame UI.
+A beginner-friendly real-time face recognition system built using **MTCNN** for face detection and **FaceNet (InceptionResNetV2)** for face embeddings, combined with a simple **Pygame UI**.
 
-⚠️ Note:
-This is a learning/academic project — not a production-grade high-security system. Accuracy may vary based on lighting, camera quality, and dataset size.
+> ⚠️ **Note:**  
+> This is a learning/academic project — not a production-grade high-security system.  
+> Accuracy may vary based on lighting, camera quality, and dataset size.
+
+---
 
 ## 🚀 Features
 
-🔍 Real-time face detection using MTCNN
+- 🔍 Real-time face detection using **MTCNN**
+- 🧬 Face recognition using **FaceNet embeddings**
+- 🎯 Cosine similarity-based matching
+- 🚫 Detects **unknown** faces when threshold not met
+- 🎨 Graphical user interface built with **Pygame**
+- 🗂 Face encodings stored using **Pickle (.pkl)**
+- 🟩 Green bounding box → recognized
+- 🟥 Red bounding box → unknown
+- 📸 Works with any standard webcam
 
-🧬 Face recognition using FaceNet embeddings
+---
 
-🎯 Cosine similarity-based matching
-
-🚫 Detects unknown faces when threshold not met
-
-🎨 Graphical user interface built with Pygame
-
-🗂 Face encodings stored using Pickle (.pkl)
-
-🟩 Green bounding box → recognized
-
-🟥 Red bounding box → unknown
-
-📸 Works with any standard webcam
-
-## Tech Stack
+## 🧪 Tech Stack
 
 | Category        | Technologies               |
 | --------------- | -------------------------- |
@@ -37,9 +34,11 @@ This is a learning/academic project — not a production-grade high-security sys
 | Data Storage    | Pickle                     |
 | GUI             | Pygame                     |
 
+---
 
-## Project Structure
+## 🗂️ Project Structure
 
+```bash
 Face-Recognition-System/
 │── assets/                # UI images, banner, background
 │── encodings/             # Stored face encodings
@@ -54,61 +53,79 @@ Face-Recognition-System/
 │── requirements.txt
 │── README.md
 │── .gitignore
+```
 
+---
 
-## How It Works(Pipeline)
+## 🔧 How It Works (Pipeline)
 
+```text
 Webcam Frame → MTCNN Detector → Face Crop → Resize (160x160)
        ↓
- Normalize → FaceNet Encoder → 128-D Embedding
+Normalize → FaceNet Encoder → 128-D Embedding
        ↓
- Cosine Distance Matching → Classified as Known / Unknown
+Cosine Distance Matching → Classified as Known / Unknown
+```
 
+---
 
-## Installation
+## ⚙️ Installation
 
-1️⃣ Clone Repository
+### 1️⃣ Clone Repository
+
+```bash
 git clone https://github.com/harshgarg99/Face-Recognition-System.git
 cd Face-Recognition-System
+```
 
-2️⃣ Create a Virtual Environment
+### 2️⃣ Create a Virtual Environment
+
+```bash
 python -m venv env
 env\Scripts\activate
+```
 
-3️⃣ Install Dependencies
+### 3️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-4️⃣ Run the Program
+### 4️⃣ Run the Program
+
+```bash
 python main.py
+```
 
+---
 
-## Known Limitations
+## ❗ Known Limitations
 
-❗ Not resistant to photo attacks (images on phones/laptops)
+- Not resistant to **photo attacks**
+- Sensitive to lighting and face angles
+- Small dataset → lower accuracy
+- No anti-spoofing module yet
+- FaceNet model is not fine-tuned for your custom faces
 
-❗ Sensitive to lighting and face angle
-
-❗ Small dataset → lower accuracy
-
-❗ No anti-spoofing module yet
-
-❗ FaceNet model is not fine-tuned on your custom faces
+---
 
 ## 🔮 Future Improvements
 
-✨ Add anti-spoofing (blink detection, depth, rPPG pulse)
+- ✨ Add anti-spoofing (blink detection, depth map, rPPG pulse)
+- ✨ Improve recognition threshold logic
+- ✨ Add “Register New Face” feature in UI
+- ✨ Replace MTCNN with **RetinaFace** for higher accuracy
+- ✨ GPU acceleration support
+- ✨ Export logs + performance metrics
 
-✨ Improve recognition threshold logic
-
-✨ Add “Register New Face” feature in UI
-
-✨ Replace MTCNN with RetinaFace for higher accuracy
-
-✨ GPU acceleration support
-
-✨ Export logs + performance metrics
+---
 
 ## ⭐ Support
 
 If you like this project, please ⭐ star the repository to support the development!
 
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
